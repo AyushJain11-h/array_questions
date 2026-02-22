@@ -935,5 +935,410 @@ Output: [1,2,3,6,9,8,7,4,5]
 
 
 
+# **🧠 Subarray Sum Equals K**
+
+## **📘 Problem Statement**
+
+Given an integer array `nums` and an integer `k`,  
+return the **total number of continuous subarrays whose sum equals `k`**.
+
+A subarray is a **contiguous** part of the array.
+
+---
+
+## **📌 Example**
+
+### **Input**
+
+nums = [1, 2, 3]
+k = 3
+
+
+### **Output**
+2
+
+
+### **Explanation**
+The subarrays whose sum equals `3` are:
+- `[1, 2]`
+- `[3]`
+
+---
+
+## **🚀 Thought Process & Approach**
+
+### **❌ Brute Force Approach (Not Optimal)**
+
+- Generate all possible subarrays.
+- Compute the sum of each subarray.
+- Count those whose sum equals `k`.
+
+**Time Complexity:** `O(n²)`  
+This approach is inefficient for large arrays.
+
+---
+
+## **✅ Optimized Approach: Prefix Sum + HashMap**
+
+
+
+# **🔥 Top K Frequent Elements**
+
+## **📘 Problem Statement**
+
+Given an integer array `nums` and an integer `k`,  
+return the **`k` most frequent elements**.
+
+You may return the answer in **any order**.
+
+---
+
+## **📌 Example**
+
+### **Input**
+nums = [1,1,1,2,2,3]
+k = 2
+
+### **Output**
+[1, 2]
+
+
+### **Explanation**
+- `1` appears **3 times**
+- `2` appears **2 times**
+- `3` appears **1 time**
+
+The top `2` most frequent elements are `1` and `2`.
+
+---
+
+## **🚀 Thought Process & Approach**
+
+### **❌ Brute Force Idea (Not Efficient)**
+
+- Count the frequency of each element.
+- Sort elements by their frequency.
+- Pick the top `k`.
+
+**Time Complexity:** `O(n log n)`  
+Sorting makes this approach slower for large inputs.
+
+---
+
+## **✅ Optimized Approach: HashMap + Bucket Sort**
+
+### **💡 Key Insight**
+
+- Frequencies range from `1` to `n` (array size).
+- We can group numbers by their frequency using **buckets**.
+- This avoids sorting and gives a linear-time solution.
+
+---
+
+## **🧩 Step-by-Step Logic**
+
+1. Use a `HashMap` to count the frequency of each element.
+2. Create an array of lists called `buckets` of size `n + 1`  
+   (where index represents frequency).
+3. Place each number into the bucket matching its frequency.
+4. Traverse the buckets from **highest frequency to lowest**.
+5. Collect elements until `k` elements are added to the result.
+
+---
+
+## **✨ Why This Works**
+
+- Frequency counting is done in `O(n)`.
+- Bucket traversal avoids sorting.
+- The highest-frequency elements are accessed first.
+
+---
+
+## **⚡ Complexity Analysis**
+
+- **Time Complexity:** `O(n)`
+- **Space Complexity:** `O(n)`
+
+This meets the problem requirement of being faster than sorting.
+
+---
+
+## **📌 Key Takeaways**
+
+- HashMaps are ideal for frequency counting.
+- Bucket Sort is useful when value ranges are known.
+- This approach is commonly expected in **FAANG-level interviews**.
+- Avoid sorting when a linear solution is possible.
+
+---
+
+
+
+# **🌧️ Trapping Rain Water**
+
+## **📘 Problem Statement**
+
+Given an integer array `height` where each element represents the height of a bar  
+and the width of each bar is `1`,  
+compute how much **rain water can be trapped** after raining.
+
+---
+
+## **📌 Example**
+
+### **Input**
+height = [0,1,0,2,1,0,1,3,2,1,2,1]
+
+
+### **Output**
+6
+
+
+### **Explanation**
+
+The elevation map can trap a total of **6 units of water** between the bars  
+after raining.
+
+---
+
+## **🚀 Thought Process & Approach**
+
+### **❌ Brute Force Idea (Not Efficient)**
+
+For each index:
+- Find the maximum height on the **left**
+- Find the maximum height on the **right**
+- Water trapped at index
+
+
+
+# **➕ Two Sum**
+
+## **📘 Problem Statement**
+
+Given an integer array `nums` and an integer `target`,  
+return **indices of the two numbers** such that they add up to `target`.
+
+- You may assume that **each input has exactly one solution**
+- You may **not** use the same element twice
+- You can return the answer in **any order**
+
+---
+
+## **📌 Example**
+
+### **Input**
+nums = [2, 7, 11, 15]
+target = 9
+
+
+### **Output**
+[0, 1]
+
+
+### **Explanation**
+
+- `nums[0] = 2`
+- `nums[1] = 7`
+- `2 + 7 = 9`
+
+Hence, indices `[0, 1]` are returned.
+
+---
+
+## **🚀 Thought Process & Approach**
+
+### **❌ Brute Force Idea (Not Optimal)**
+
+- Check every pair of elements.
+- If their sum equals `target`, return their indices.
+
+**Time Complexity:** `O(n²)`  
+This approach becomes slow for large arrays.
+
+---
+
+## **✅ Optimized Approach: HashMap (One Pass)**
+
+
+
+# **🔤 Valid Anagram**
+
+## **📘 Problem Statement**
+
+Given two strings `s` and `t`,  
+return **true** if `t` is an **anagram** of `s`,  
+and **false** otherwise.
+
+An **anagram** is formed by rearranging the letters of another string  
+using **all original characters exactly once**.
+
+---
+
+## **📌 Example**
+
+### **Input**
+s = "anagram"
+t = "nagaram"
+
+
+### **Output**
+true
+
+
+### **Explanation**
+
+Both strings contain the same characters  
+with the same frequencies, just in a different order.
+
+---
+
+## **🚀 Thought Process & Approach**
+
+### **❌ Brute Force Idea (Not Efficient)**
+
+- Generate all permutations of string `s`
+- Check if any permutation equals string `t`
+
+**Time Complexity:** `O(n!)`  
+Completely impractical.
+
+---
+
+## **✅ Optimized Approach: Character Frequency Counting**
+
+### **💡 Key Insight**
+
+Two strings are anagrams **if and only if**  
+each character appears the **same number of times** in both strings.
+
+---
+
+## **🧩 Step-by-Step Logic**
+
+1. If the lengths of `s` and `t` are different:
+   - Return `false`
+2. Create a frequency counter (array or HashMap).
+3. Traverse string `s`:
+   - Increment count of each character.
+4. Traverse string `t`:
+   - Decrement count of each character.
+5. If any count becomes negative:
+   - Return `false`
+6. If all counts are zero at the end:
+   - Return `true`
+
+---
+
+## **✨ Why This Works**
+
+- Every character must be perfectly balanced.
+- Frequency mismatches are detected immediately.
+- No sorting is required.
+
+---
+
+## **⚡ Complexity Analysis**
+
+- **Time Complexity:** `O(n)`
+- **Space Complexity:** `O(1)`  
+  (constant space if only lowercase English letters are used)
+
+---
+
+## **📌 Key Takeaways**
+
+- Anagrams are about **frequency matching**
+- Hashing/counting beats permutations or sorting
+- Early length check saves computation
+- Very common **string interview problem**
+
+---
+
+
+
+# **🔗 Word Ladder**
+
+## **📘 Problem Statement**
+
+Given two words `beginWord` and `endWord`, and a dictionary `wordList`,  
+return the **length of the shortest transformation sequence** from `beginWord` to `endWord`.
+
+Rules for transformation:
+- Only **one letter** can be changed at a time
+- Each transformed word must exist in the `wordList`
+- `beginWord` does **not** need to be in the word list
+
+If no such transformation sequence exists, return `0`.
+
+---
+
+## **📌 Example**
+
+### **Input**
+beginWord = "hit"
+endWord = "cog"
+wordList = ["hot","dot","dog","lot","log","cog"]
+
+
+### **Output**
+5
+
+## **🚀 Thought Process & Approach**
+
+### **❌ Naive Idea (Not Efficient)**
+
+- Try all possible transformations
+- Check every possible path from `beginWord` to `endWord`
+
+❌ This results in an exponential number of possibilities  
+and is not feasible for large word lists.
+
+---
+
+## **✅ Optimized Approach: Breadth-First Search (BFS)**
+
+### **💡 Key Insight**
+
+- Each word represents a **node**
+- An edge exists between two words if they differ by **one letter**
+- We need the **shortest path**, so **BFS** is the perfect choice
+
+---
+
+## **🧩 Step-by-Step Logic**
+
+1. Convert `wordList` into a `HashSet` for fast lookup.
+2. Use a `Queue` for BFS.
+3. Start BFS from `beginWord`.
+4. For each word:
+   - Try changing every character (`a` to `z`)
+   - Generate all possible next words
+5. If a generated word exists in the set:
+   - Add it to the queue
+   - Remove it from the set (to avoid revisiting)
+6. Track the **level (steps)** in BFS.
+7. When `endWord` is reached:
+   - Return the current level.
+8. If BFS ends without reaching `endWord`:
+   - Return `0`.
+
+---
+
+## **✨ Why This Works**
+
+- BFS guarantees the **shortest transformation path**
+- Each word is visited only once
+- HashSet ensures constant-time lookups
+
+---
+
+## **⚡ Complexity Analysis**
+
+- **Time Complexity:** `O(N × L × 26)`  
+  where:
+  - `N` = number of words  
+  - `L` = length of each word
+- **Space Complexity:** `O(N)`
 
 
